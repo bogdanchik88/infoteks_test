@@ -1,4 +1,4 @@
-const TableSkeleton = ({ rows = 10 }) => {
+const TableSkeleton = ({ rows = 8 }) => {
   return (
     <div className="max-w-350 overflow-x-visible flex justify-center w-full min-h-100">
       <table className="border-collapse border border-gray-400 w-full table-fixed">
