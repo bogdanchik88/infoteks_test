@@ -86,7 +86,7 @@ const Table = () => {
               >   
                 <td className="border p-2">{user.lastName}</td>
                 <td className="border p-2">{user.firstName}</td>
-                <td className="border p-2">{user.maidenName || ''}</td>                         
+                <td className="border p-2">{user.maidenName || '—'}</td>                         
                 <td className="border p-2">{user.age}</td>
                 <td className="border p-2">{user.gender}</td>
                 <td className="border p-2">{user.phone}</td>
