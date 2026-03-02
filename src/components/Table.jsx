@@ -1,6 +1,6 @@
 import { useUsers } from '../hooks/useUsers'
 import useModalStore from '../store/modalStore'
-import Loading from './Loading'
+import Loading from '../elements/Loading'
 import TableSkeleton from './TableSkeleton'
 
 const Table = () => { 
