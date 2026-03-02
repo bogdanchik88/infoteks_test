@@ -10,22 +10,23 @@ const Table = () => {
     isRefetching
     } = useUsers()
 
+    const isShowLoading = isLoading || isRefetching
+
   return (
       <div className="relative overflow-auto max-w-350 flex justify-center w-full min-h-100">
-        {(isLoading || isRefetching) && <Loading/>}
-        {isLoading && <TableSkeleton/>}
-        {users.length > 0 && <table className="border-collapse border border-gray-400 w-full">
+        {isLoading ? <TableSkeleton/> : (
+        <table className="border-collapse border border-gray-400 w-full">
           <thead>
             <tr>
-              <th className="border p-2 cursor-pointer">First Name</th>
-              <th className="border p-2 cursor-pointer">Last Name</th>
-              <th className="border p-2 cursor-pointer">Maiden Name</th>
-              <th className="border p-2 cursor-pointer">Age</th>
-              <th className="border p-2 cursor-pointer">Gender</th>
-              <th className="border p-2 cursor-pointer">Phone</th>
-              <th className="border p-2 cursor-pointer">Email</th>
-              <th className="border p-2 cursor-pointer">Country</th>
-              <th className="border p-2 cursor-pointer">City</th>
+              <th className="border p-2 cursor-pointer">Фамилия</th>
+              <th className="border p-2 cursor-pointer">Имя</th>
+              <th className="border p-2 cursor-pointer">Отчество</th>
+              <th className="border p-2 cursor-pointer">Возраст</th>
+              <th className="border p-2 cursor-pointer">Пол</th>
+              <th className="border p-2 cursor-pointer">Телефон</th>
+              <th className="border p-2 cursor-pointer">Почта</th>
+              <th className="border p-2 cursor-pointer">Страна</th>
+              <th className="border p-2 cursor-pointer">Город</th>
             </tr>
           </thead>
 
@@ -44,7 +45,8 @@ const Table = () => {
               </tr>
             ))}
           </tbody>
-        </table>}
+        </table>)}
+        {isShowLoading && <Loading/>}
       </div>
   )
 }
