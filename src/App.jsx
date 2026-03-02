@@ -27,14 +27,14 @@ function App() {
         {users.length > 0 && <table className="border-collapse border border-gray-400">
           <thead>
             <tr>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('firstName')}>First Name</th>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('lastName')}>Last Name</th>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('maidenName')}>Maiden Name</th>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('gender')}>Gender</th>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('phone')}>Phone</th>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('email')}>Email</th>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('address.country')}>Country</th>
-              <th className="border p-2 cursor-pointer" onClick={() => handleSort('address.city')}>City</th>
+              <th className="border p-2 cursor-pointer">First Name</th>
+              <th className="border p-2 cursor-pointer">Last Name</th>
+              <th className="border p-2 cursor-pointer">Maiden Name</th>
+              <th className="border p-2 cursor-pointer">Gender</th>
+              <th className="border p-2 cursor-pointer">Phone</th>
+              <th className="border p-2 cursor-pointer">Email</th>
+              <th className="border p-2 cursor-pointer">Country</th>
+              <th className="border p-2 cursor-pointer">City</th>
             </tr>
           </thead>
 
