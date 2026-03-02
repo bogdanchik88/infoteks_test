@@ -11,6 +11,7 @@ function App() {
     refetch,
     isLoading,
     error,
+    isRefetching
   } = useUsers()
 
   return (
@@ -22,7 +23,7 @@ function App() {
       >
         спарсить юзеров
       </button>
-      {isLoading && <Loading/>}
+      {(isLoading || isRefetching) && <Loading/>}
       {error && <p>Не спарсили юзеров TAT</p>}      
       <div className="overflow-auto max-w-full">
         {users.length > 0 && <table className="border-collapse border border-gray-400">
