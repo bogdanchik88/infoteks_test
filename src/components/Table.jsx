@@ -34,16 +34,24 @@ const Table = () => {
   }, [fetchedUsers])
 
   const filteredUsers = users
+    .map(user => ({
+      ...user,
+      fullName: `${user.lastName} ${user.firstName} ${user.maidenName || ''}`.trim()
+    }))
     .filter(user => {
       if (!sortParameter || sortParameter === 'id') return true
       if (!filterValue) return true
-      const value = user[sortParameter] ?? ''
+
+      const value = sortParameter === 'fullName' 
+                    ? user.fullName
+                    : user[sortParameter] ?? ''
+
       return String(value).toLowerCase().includes(filterValue.toLowerCase())
     })
     .sort((a, b) => {
       if (!sortParameter || sortParameter === 'id') return 0
-      const aVal = a[sortParameter]
-      const bVal = b[sortParameter]
+      const aVal = sortParameter === 'fullName' ? a.fullName : a[sortParameter]
+      const bVal = sortParameter === 'fullName' ? b.fullName : b[sortParameter]
 
       if (aVal == null) return 1
       if (bVal == null) return -1
@@ -65,10 +73,8 @@ const Table = () => {
       {isLoading ? <TableSkeleton/> : (
         <table className="border-collapse border border-gray-400 w-full">
           <thead>
-            <tr>
-              <th className="border p-2">Фамилия</th>
-              <th className="border p-2">Имя</th>
-              <th className="border p-2">Отчество</th>
+            <tr onClick={() => console.log(users)}>
+              <th className="border p-2">ФИО</th>
               <th className="border p-2">Возраст</th>
               <th className="border p-2">Пол</th>
               <th className="border p-2">Телефон</th>
@@ -84,10 +90,8 @@ const Table = () => {
                 key={user.id}
                 className="hover:bg-gray-100 cursor-pointer"
                 onClick={() => setModalUser(user)}
-              >
-                <td className="border p-2">{user.firstName}</td>
-                <td className="border p-2">{user.lastName}</td>
-                <td className="border p-2">{user.maidenName || '-'}</td>
+              >   
+                <td className="border p-2">{user.firstName} {user.lastName} {user.maidenName || ''}</td>                           
                 <td className="border p-2">{user.age}</td>
                 <td className="border p-2">{user.gender}</td>
                 <td className="border p-2">{user.phone}</td>

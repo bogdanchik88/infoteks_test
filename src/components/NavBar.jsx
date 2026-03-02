@@ -1,3 +1,4 @@
+import usePaginationStore from "../store/paginationStore"
 import useSortStore from "../store/sortStore"
 
 const NavBar = () => {
@@ -10,12 +11,19 @@ const NavBar = () => {
   const filterValue = useSortStore(state => state.filterValue);
   const setFilter = useSortStore(state => state.setFilter);
 
+  const setCurrentPage = usePaginationStore(state => state.setCurrentPage)
+
   const sortParams = [
-    { key: 'firstName', label: 'ФИО' },
+    { key: 'fullName', label: 'ФИО' },
     { key: 'age', label: 'Возраст' },
     { key: 'gender', label: 'Пол' },
     { key: 'phone', label: 'Телефон' }
   ]
+
+  const inputFilter = (val) => {
+    setFilter(val)
+    setCurrentPage(1)
+  }
 
   return (
     <div className="w-full max-w-350 mx-auto h-20 bg-gray-200 rounded-full flex items-center justify-around p-2 text-lg font-medium shadow-md">
@@ -41,7 +49,7 @@ const NavBar = () => {
         className="border py-2 px-3 rounded-2xl text-xl"
         placeholder="Введите значение"
         value={filterValue}
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={(e) => inputFilter(e.target.value)}
       />
 
       <div className="flex items-center gap-2">
