@@ -13,10 +13,19 @@ const useSortStore = create(
         },
 
         toggleSortOrder: () => {
-            set(state => (
-                    {sortOrder: state.sortOrder === 'asc' ? 'desc' : 'asc'}
-                ))
+          set(state => (
+                  {sortOrder: state.sortOrder === 'asc' ? 'desc' : 'asc'}
+              ))
         },
+
+        setSortAsc: () => {
+          set({sortOrder:'asc'})
+        },
+
+        setSortDesc: () => {
+          set({sortOrder:'desc'})
+        },
+
 
         resetSorting: () => {
           set( {

@@ -2,7 +2,8 @@ import useSortStore from "../store/sortStore"
 
 const NavBar = () => {
     const setSortParameter = useSortStore(state => state.setSortParameter)
-    const toggleSortOrder = useSortStore(state => state.toggleSortOrder)
+    const setSortAsc = useSortStore(state => state.setSortAsc)
+    const setSortDesc = useSortStore(state => state.toggleSortOrder)
     const resetSorting = useSortStore(state => state.resetSorting)
   return (
     <div className="w-full max-w-350 mx-auto h-20 bg-gray-200 rounded-full flex items-center justify-around p-2">
@@ -13,8 +14,8 @@ const NavBar = () => {
         <button onClick={() => setSortParameter('phone')} className="cursor-pointer">Номеру телефона</button>   
 
         <p>в порядке</p>   
-        <button onClick={() => toggleSortOrder() } className="cursor-pointer">возрастания</button>  
-        <button onClick={() => toggleSortOrder()} className="cursor-pointer">убывания</button>        
+        <button onClick={() => setSortAsc() } className="cursor-pointer">возрастания</button>  
+        <button onClick={() => setSortDesc()} className="cursor-pointer">убывания</button>        
 
         <button onClick={() => resetSorting()} className="cursor-pointer">Сбросить</button>
     </div>

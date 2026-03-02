@@ -1,6 +1,5 @@
 import { createPortal } from 'react-dom'
 import useModalStore from '../store/modalStore'
-import { useEffect } from 'react'
 
 const UserModal = () => {
     const currentUser = useModalStore(state => state.currentUser)
@@ -16,7 +15,7 @@ const UserModal = () => {
             <div className="bg-white p-3 rounded-xl w-125 shadow-xl text-xl relative"
                 onClick={(e) => e.stopPropagation()}>
                 <button
-                className="px-4 py-2 bg-red-500 text-white rounded-2xl cursor-pointer absolute top-3 right-3
+                className="px-4 py-2 bg-red-500 text-white rounded-2xl cursor-pointer font-medium absolute top-3 right-3
                     hover:bg-red-700
                     active:bg-red-500"
                 onClick={resetUser}

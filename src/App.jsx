@@ -1,6 +1,6 @@
 import NavBar from './components/NavBar'
 import Table from './components/Table'
-import UserModal from './components/userModal'
+import UserModal from './elements/UserModal'
 
 function App() {
 
