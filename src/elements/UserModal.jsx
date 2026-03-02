@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom'
 import useModalStore from '../store/modalStore'
+import ViteLogo from '../assets/vite.svg'
 
 const UserModal = () => {
     const currentUser = useModalStore(state => state.currentUser)
@@ -25,7 +26,7 @@ const UserModal = () => {
                 <div className='flex flex-col justify-center items-center text-2xl font-bold'>
                     <h1>{currentUser.firstName} {currentUser.lastName}</h1>
                     <h2>{currentUser.maidenName || ''}</h2> 
-                    <img src={currentUser.image} alt="/vite.svg" className='size-32 mt-1'/>
+                    <img src={currentUser.image} alt={ViteLogo} className='size-32 mt-1'/>
                 </div>
 
                 <div className='flex justify-center gap-4 font-medium mb-4'>
