@@ -7,6 +7,8 @@ const NavBar = () => {
   const setSortAsc = useSortStore(state => state.setSortAsc)
   const setSortDesc = useSortStore(state => state.setSortDesc)
   const resetSorting = useSortStore(state => state.resetSorting)
+  const filterValue = useSortStore(state => state.filterValue);
+  const setFilter = useSortStore(state => state.setFilter);
 
   const sortParams = [
     { key: 'firstName', label: 'ФИО' },
@@ -17,7 +19,7 @@ const NavBar = () => {
 
   return (
     <div className="w-full max-w-350 mx-auto h-20 bg-gray-200 rounded-full flex items-center justify-around p-2 text-lg font-medium shadow-md">
-      
+  
       <div className="flex items-center gap-2">
         <span>Сортировать по:</span>
         {sortParams.map(p => (
@@ -33,6 +35,14 @@ const NavBar = () => {
           </button>
         ))}
       </div>
+
+      <input
+        type="text"
+        className="border py-2 px-3 rounded-2xl text-xl"
+        placeholder="Введите значение"
+        value={filterValue}
+        onChange={(e) => setFilter(e.target.value)}
+      />
 
       <div className="flex items-center gap-2">
         <span>Порядок:</span>

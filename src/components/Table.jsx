@@ -4,6 +4,7 @@ import usePaginationStore from '../store/paginationStore'
 import Loading from '../elements/Loading'
 import TableSkeleton from './TableSkeleton'
 import { useEffect } from 'react'
+import useSortStore from '../store/sortStore'
 
 const Table = () => { 
   const setModalUser = useModalStore(state => state.setModalUser)
@@ -13,6 +14,10 @@ const Table = () => {
   const pageSize = usePaginationStore(state => state.pageSize)
   const setUsers = usePaginationStore(state => state.setUsers)
   const setCurrentPage = usePaginationStore(state => state.setCurrentPage)
+
+  const sortParameter = useSortStore(state => state.sortParameter)
+  const sortOrder = useSortStore(state => state.sortOrder)
+  const filterValue = useSortStore(state => state.filterValue)
 
   const {
     data: fetchedUsers = [],
@@ -28,9 +33,28 @@ const Table = () => {
     }
   }, [fetchedUsers])
 
-  const totalPages = Math.ceil(users.length / pageSize)
+  const filteredUsers = users
+    .filter(user => {
+      if (!sortParameter || sortParameter === 'id') return true
+      if (!filterValue) return true
+      const value = user[sortParameter] ?? ''
+      return String(value).toLowerCase().includes(filterValue.toLowerCase())
+    })
+    .sort((a, b) => {
+      if (!sortParameter || sortParameter === 'id') return 0
+      const aVal = a[sortParameter]
+      const bVal = b[sortParameter]
 
-  const pagedUsers = users.slice(
+      if (aVal == null) return 1
+      if (bVal == null) return -1
+
+      if (sortOrder === 'asc') return aVal > bVal ? 1 : aVal < bVal ? -1 : 0
+      return aVal < bVal ? 1 : aVal > bVal ? -1 : 0
+  })
+
+  const totalPages = Math.ceil(filteredUsers.length / pageSize)
+
+  const pagedUsers = filteredUsers.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize
   )
