@@ -1,8 +1,12 @@
 import { useUsers } from '../hooks/useUsers'
+import useModalStore from '../store/modalStore'
 import Loading from './Loading'
 import TableSkeleton from './TableSkeleton'
 
 const Table = () => { 
+
+    const setModalUser = useModalStore(state => state.setModalUser)
+
     const {
     data: users = [],
     isLoading,
@@ -32,7 +36,7 @@ const Table = () => {
 
           <tbody>
             {users.map((user) => (
-              <tr key={user.id} className="hover:bg-gray-100">
+              <tr key={user.id} className="hover:bg-gray-100 cursor-pointer" onClick={() => setModalUser(user)}>
                 <td className="border p-2">{user.firstName}</td>
                 <td className="border p-2">{user.lastName}</td>
                 <td className="border p-2">{user.maidenName || '-'}</td>
