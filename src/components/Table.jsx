@@ -11,15 +11,16 @@ const Table = () => {
     } = useUsers()
 
   return (
-      <div className="overflow-auto max-w-350 flex justify-center w-full">
+      <div className="relative overflow-auto max-w-350 flex justify-center w-full">
         {(isLoading || isRefetching) && <Loading/>}
-        {isLoading && <TableSkeleton/>}
-        {users.length > 0 && <table className="border-collapse border border-gray-400 w-full">
+        {users.length > 0 && isLoading && <TableSkeleton/>}
+        {<table className="border-collapse border border-gray-400 w-full">
           <thead>
             <tr>
               <th className="border p-2 cursor-pointer">First Name</th>
               <th className="border p-2 cursor-pointer">Last Name</th>
               <th className="border p-2 cursor-pointer">Maiden Name</th>
+              <th className="border p-2 cursor-pointer">Age</th>
               <th className="border p-2 cursor-pointer">Gender</th>
               <th className="border p-2 cursor-pointer">Phone</th>
               <th className="border p-2 cursor-pointer">Email</th>
@@ -34,6 +35,7 @@ const Table = () => {
                 <td className="border p-2">{user.firstName}</td>
                 <td className="border p-2">{user.lastName}</td>
                 <td className="border p-2">{user.maidenName || '-'}</td>
+                <td className="border p-2">{user.age}</td>
                 <td className="border p-2">{user.gender}</td>
                 <td className="border p-2">{user.phone}</td>
                 <td className="border p-2">{user.email}</td>

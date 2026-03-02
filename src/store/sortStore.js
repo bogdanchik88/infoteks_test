@@ -16,6 +16,14 @@ const useSortStore = create(
             set(state => (
                     {sortOrder: state.sortOrder === 'asc' ? 'desc' : 'asc'}
                 ))
+        },
+
+        resetSorting: () => {
+          set( {
+            sortParameter: 'id',
+            sortOrder: 'asc',
+            usersLimit: '0',            
+          })
         }
 
     }),
