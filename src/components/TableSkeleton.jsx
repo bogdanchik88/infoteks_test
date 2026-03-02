@@ -4,7 +4,9 @@ const TableSkeleton = ({ rows = 8 }) => {
       <table className="border-collapse border border-gray-400 w-full table-fixed">
         <thead>
           <tr>
-            <th className="border p-2 bg-gray-200">Full Name</th>
+            <th className="border p-2 bg-gray-200">Last Name</th>
+            <th className="border p-2 bg-gray-200">First Name</th>
+            <th className="border p-2 bg-gray-200">Maiden Name</th>
             <th className="border p-2 bg-gray-200">Age</th>
             <th className="border p-2 bg-gray-200">Gender</th>
             <th className="border p-2 bg-gray-200">Phone</th>
@@ -16,7 +18,9 @@ const TableSkeleton = ({ rows = 8 }) => {
         <tbody>
           {Array.from({ length: rows }).map((_, r) => (
             <tr key={r} className="animate-pulse">
-              <td className="border p-2 bg-gray-100">John Doe Rouytre</td>
+              <td className="border p-2 bg-gray-100">Doe</td>
+              <td className="border p-2 bg-gray-100">John</td>
+              <td className="border p-2 bg-gray-100">Rouytre</td>
               <td className="border p-2 bg-gray-100">fakeAge</td>
               <td className="border p-2 bg-gray-100">fakeGender</td>
               <td className="border p-2 bg-gray-100">fakePhone</td>
