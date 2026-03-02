@@ -62,27 +62,3 @@ const UserModal = () => {
 }
 
 export default UserModal
-
-// address
-// : 
-// address
-// : 
-// "257 Ninth Street"
-// city
-// : 
-// "San Diego"
-// coordinates
-// : 
-// {lat: 14.373938, lng: -117.931737}
-// country
-// : 
-// "United States"
-// postalCode
-// : 
-// "80524"
-// state
-// : 
-// "Rhode Island"
-// stateCode
-// : 
-// "RI"
