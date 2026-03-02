@@ -1,5 +1,6 @@
 import NavBar from './components/NavBar'
-import Table from './components/table'
+import Table from './components/Table'
+import UserModal from './components/userModal'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <div className="w-full max-w-350 flex-1 overflow-auto mt-4 max-h-[75vh]">
         <Table />
       </div>
+      <UserModal/>
     </div>
   )
 }
