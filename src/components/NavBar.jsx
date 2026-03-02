@@ -14,8 +14,8 @@ const NavBar = () => {
   const setCurrentPage = usePaginationStore(state => state.setCurrentPage)
 
   const sortParams = [
-    { key: 'firstName', label: 'Фамилии' },
-    { key: 'lastName', label: 'Имени' },
+    { key: 'lastName', label: 'Фамилии' },
+    { key: 'firstName', label: 'Имени' },
     { key: 'maidenName', label: 'Отчеству' },
     { key: 'age', label: 'Возрасту' },
     { key: 'gender', label: 'Полу' },
