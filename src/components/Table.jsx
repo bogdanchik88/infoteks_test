@@ -83,14 +83,14 @@ const Table = () => {
 
           <button onClick={() => setCurrentPage(1)}
             disabled={currentPage === 1}
-            className='px-3 py-1 bg-blue-300 rounded-2xl disabled:opacity-30 cursor-pointer
+            className='px-3 py-1 bg-blue-300 rounded-full disabled:opacity-30 cursor-pointer transition-colors duration-200
               hover:bg-blue-500 active:bg-blue-400'
           >В начало</button>
 
           <button
             onClick={() => setCurrentPage(currentPage - 1)}
             disabled={currentPage === 1}
-            className="px-3 py-1 bg-gray-200 rounded-2xl disabled:opacity-30 cursor-pointer
+            className="px-3 py-1 bg-gray-200 rounded-full disabled:opacity-30 cursor-pointer transition-colors duration-200
               hover:bg-gray-400 active:bg-gray-300"
           >Назад</button>
 
@@ -101,13 +101,13 @@ const Table = () => {
           <button
             onClick={() => setCurrentPage(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="px-3 py-1 bg-gray-200 rounded-2xl disabled:opacity-30 cursor-pointer
+            className="px-3 py-1 bg-gray-200 rounded-full disabled:opacity-30 cursor-pointer transition-colors duration-200
               hover:bg-gray-400 active:bg-gray-300"
           >Вперёд</button> 
 
           <button onClick={() => setCurrentPage(totalPages)}
             disabled={currentPage === totalPages}
-            className='px-3 py-1 bg-red-300 rounded-2xl disabled:opacity-30 cursor-pointer
+            className='px-3 py-1 bg-red-300 rounded-full disabled:opacity-30 cursor-pointer transition-colors duration-200
               hover:bg-red-500 active:bg-red-400'
             >В конец</button>
 

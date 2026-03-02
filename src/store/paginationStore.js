@@ -8,7 +8,7 @@ const usePaginationStore = create((set) => ({
   setUsers: (users) =>
     set({
       users,
-      currentPage: 1 // сбрасываем страницу при новых данных
+      currentPage: 1
     }),
 
   setCurrentPage: (page) =>

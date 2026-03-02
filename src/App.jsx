@@ -5,7 +5,7 @@ import UserModal from './elements/UserModal'
 function App() {
 
   return (
-    <div className="flex flex-col w-screen h-screen items-center pt-4 text-xl font-normal font-Inter">
+    <div className="flex flex-col w-screen h-screen items-center pt-4 text-xl font-normal font-Inter bg-white">
       <div className="w-full max-w-350">
         <NavBar />
       </div>
