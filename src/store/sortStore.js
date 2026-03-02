@@ -7,6 +7,7 @@ const useSortStore = create(
         sortParameter: 'id',
         sortOrder: 'asc',
         usersLimit: '0',
+        filterValue: '',
 
         setSortParameter: (parameter) => {
             set( { sortParameter : parameter } )
@@ -31,8 +32,13 @@ const useSortStore = create(
           set( {
             sortParameter: 'id',
             sortOrder: 'asc',
-            usersLimit: '0',            
+            usersLimit: '0',   
+            filterValue: '',         
           })
+        },
+
+        setFilter: (text) => {
+          set({filterValue: text})
         }
 
     }),
