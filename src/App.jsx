@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useUsers } from './hooks/useUsers'
+import Loading from './Loading'
 
 function App() {
   const [sortField, setSortField] = useState(null)
@@ -21,7 +22,7 @@ function App() {
       >
         спарсить юзеров
       </button>
-      {isLoading && <p>Парсим юзеров....</p>}
+      {isLoading && <Loading/>}
       {error && <p>Не спарсили юзеров TAT</p>}      
       <div className="overflow-auto max-w-full">
         {users.length > 0 && <table className="border-collapse border border-gray-400">
