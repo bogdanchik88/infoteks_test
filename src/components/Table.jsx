@@ -11,10 +11,10 @@ const Table = () => {
     } = useUsers()
 
   return (
-      <div className="relative overflow-auto max-w-350 flex justify-center w-full">
+      <div className="relative overflow-auto max-w-350 flex justify-center w-full min-h-100">
         {(isLoading || isRefetching) && <Loading/>}
-        {users.length > 0 && isLoading && <TableSkeleton/>}
-        {<table className="border-collapse border border-gray-400 w-full">
+        {isLoading && <TableSkeleton/>}
+        {users.length > 0 && <table className="border-collapse border border-gray-400 w-full">
           <thead>
             <tr>
               <th className="border p-2 cursor-pointer">First Name</th>
