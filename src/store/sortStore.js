@@ -6,6 +6,7 @@ const useSortStore = create(
     (set, _) => ({
         sortParameter: 'id',
         sortOrder: 'asc',
+        usersLimit: '0',
 
         setSortParameter: (parameter) => {
             set( { sortParameter : parameter } )

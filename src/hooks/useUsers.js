@@ -4,10 +4,10 @@ import useSortStore from "../store/sortStore";
 
 export const useUsers = () => {
 
-    const { sortParameter, sortOrder} = useSortStore()
-    
+    const { sortParameter, sortOrder, usersLimit} = useSortStore()
+
     return useQuery({
-        queryKey: ['users', sortParameter, sortOrder],
-        queryFn: () => getUsers(sortParameter, sortOrder),
+        queryKey: ['users', sortParameter, sortOrder, usersLimit],
+        queryFn: () => getUsers(sortParameter, sortOrder, usersLimit),
     })
 }

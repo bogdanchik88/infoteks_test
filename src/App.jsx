@@ -9,7 +9,7 @@ function App() {
     data: users = [],
     refetch,
     isLoading,
-    error
+    error,
   } = useUsers()
 
   return (
